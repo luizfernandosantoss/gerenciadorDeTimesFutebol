@@ -1,6 +1,8 @@
 package br.com.codenation.desafio.service.impl;
 
+import br.com.codenation.desafio.model.Jogador;
 import br.com.codenation.desafio.service.MeuTimeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -9,6 +11,8 @@ import java.util.List;
 
 @Service
 public class MeuTimeServiceImpl implements MeuTimeService {
+
+
     @Override
     public void incluirTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario) {
 
@@ -16,8 +20,7 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
-        System.out.println("incluirJogador");
-
+        Jogador jogador = new Jogador(id,idTime,nome,dataNascimento,nivelHabilidade,salario);
     }
 
     @Override

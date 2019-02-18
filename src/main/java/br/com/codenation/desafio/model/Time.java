@@ -7,7 +7,7 @@ public class Time {
     private String nome;
     private LocalDate dataCriacao;
     private String corUniformePrincipal;
-    private String String;
+    private String corUniformeSecundario;
 
 
 }

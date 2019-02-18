@@ -1,4 +1,4 @@
-package br.com.gerenciadorDeTimesFutebol;
+package br.com.codenation.desafio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

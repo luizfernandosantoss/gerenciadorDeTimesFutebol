@@ -1,4 +1,4 @@
-package br.com.gerenciadorDeTimesFutebol;
+package br.com.codenation.desafio;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

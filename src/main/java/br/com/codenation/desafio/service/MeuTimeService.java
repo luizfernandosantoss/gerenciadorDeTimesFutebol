@@ -1,4 +1,4 @@
-package br.com.gerenciadorDeTimesFutebol.service;
+package br.com.codenation.desafio.service;
 
 import org.springframework.stereotype.Service;
 

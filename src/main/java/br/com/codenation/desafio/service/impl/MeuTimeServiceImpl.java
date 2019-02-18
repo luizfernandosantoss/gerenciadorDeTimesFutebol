@@ -1,6 +1,6 @@
-package br.com.gerenciadorDeTimesFutebol.service.impl;
+package br.com.codenation.desafio.service.impl;
 
-import br.com.gerenciadorDeTimesFutebol.service.MeuTimeService;
+import br.com.codenation.desafio.service.MeuTimeService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

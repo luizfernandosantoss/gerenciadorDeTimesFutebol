@@ -1,5 +1,6 @@
 package br.com.codenation.desafio.controller;
 
+import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.desafio.service.MeuTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,7 +33,12 @@ public class JogadorRestController {
 
     @GetMapping(value = "/buscarNomeJogador")
     public ResponseEntity<String> buscarNomeJogador(Long idJogador){
-        return  new ResponseEntity<>(meuTimeService.buscarNomeJogador(idJogador),HttpStatus.OK);
+        try {
+            return  new ResponseEntity<>(meuTimeService.buscarNomeJogador(idJogador),HttpStatus.OK);
+        }catch (TimeNaoEncontradoException e){
+            return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+
     }
 
 

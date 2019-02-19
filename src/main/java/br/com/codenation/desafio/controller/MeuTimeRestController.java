@@ -1,5 +1,6 @@
 package br.com.codenation.desafio.controller;
 
+import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.desafio.model.Jogador;
 import br.com.codenation.desafio.service.MeuTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -44,8 +46,12 @@ public class MeuTimeRestController {
         }
         @GetMapping(value = "/buscarNomeTime")
         public String buscarNomeTime(Long idTime) {
-
-            return meuTimeService.buscarNomeTime(idTime);
+            try{
+                return meuTimeService.buscarNomeTime(idTime);
+            }catch (TimeNaoEncontradoException e){
+                throw new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, e.getMessage(), e);
+            }
         }
 
 }

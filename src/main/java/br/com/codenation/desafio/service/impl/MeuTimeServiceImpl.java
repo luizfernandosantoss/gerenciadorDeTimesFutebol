@@ -36,7 +36,8 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public void definirCapitao(Long idJogador) {
-
+        Jogador jogadorlocal = jogadorDao.buscaJogadorPorId(idJogador);
+        timeDao.definirCapitao(jogadorlocal.getId(),jogadorlocal.getIdTime());
     }
 
     @Override
@@ -51,7 +52,7 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public String buscarNomeTime(Long idTime) {
-        return "Vim de outro lugar";
+        return timeDao.buscaNomeTime(idTime);
     }
 
     @Override

@@ -1,6 +1,9 @@
 package br.com.codenation.desafio.service.impl;
 
+import br.com.codenation.desafio.dao.JogadorDao;
+import br.com.codenation.desafio.dao.TimeDao;
 import br.com.codenation.desafio.model.Jogador;
+import br.com.codenation.desafio.model.Time;
 import br.com.codenation.desafio.service.MeuTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +18,15 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public void incluirTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario) {
-
+        Time time = new Time(id,nome,dataCriacao,corUniformePrincipal,corUniformeSecundario);
+        TimeDao timeDao = new TimeDao();
     }
 
     @Override
     public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
         Jogador jogador = new Jogador(id,idTime,nome,dataNascimento,nivelHabilidade,salario);
+        JogadorDao jogadorDao = new JogadorDao();
+        jogadorDao.adicionarJogador(jogador);
     }
 
     @Override

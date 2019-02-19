@@ -45,16 +45,15 @@ public class TimeDao {
     }
     public Time buscarTimePorId(Long idTime){
         Time time = null;
-        try{
-            time  = listaTime.get(idTime);
-        }catch (NullPointerException e){
+        time  = listaTime.get(idTime);
+        if(time == null){
             throw new TimeNaoEncontradoException("Time não encontrado");
         }
-
         return time;
     }
 
     public void definirCapitao(Long idJogador,Long idTime) {
-
+        Time time = buscarTimePorId(idTime);
+        time.setCapitao(idJogador);
     }
 }

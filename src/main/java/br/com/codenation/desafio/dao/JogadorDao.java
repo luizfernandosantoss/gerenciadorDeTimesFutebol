@@ -26,11 +26,11 @@ public class JogadorDao {
     public Jogador buscaJogadorPorId(Long idJogador) {
 
         Jogador jogador = null;
-        try{
-            jogador  = listaJogadores.get(idJogador);
-        }catch (NullPointerException e){
+        jogador  = listaJogadores.get(idJogador);
+        if(jogador == null){
             throw new JogadorNaoEncontradoException("Jogador não encontrado");
         }
+
 
         return jogador;
     }

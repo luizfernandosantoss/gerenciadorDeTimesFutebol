@@ -58,4 +58,8 @@ public class Time {
     public Long getCapitao() {
         return capitao;
     }
+
+    public void setCapitao(Long capitao) {
+        this.capitao = capitao;
+    }
 }

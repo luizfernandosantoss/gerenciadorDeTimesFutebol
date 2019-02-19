@@ -36,6 +36,11 @@ public class MeuTimeRestController {
         meuTimeService.incluirTime(id,nome,dataCri,corUniformePrincipal,corUniformeSecundario);
         return new ResponseEntity(HttpStatus.OK);
     }
-
+    @PostMapping(value = "/definirCapitao")
+    public ResponseEntity definirCapitao (Long idJogador){
+            meuTimeService.definirCapitao(idJogador);
+            return new ResponseEntity(HttpStatus.OK);
+    }
 
 }
+

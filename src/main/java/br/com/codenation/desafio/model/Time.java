@@ -16,5 +16,42 @@ public class Time {
         this.dataCriacao = dataCriacao;
         this.corUniformePrincipal = corUniformePrincipal;
         this.corUniformeSecundario = corUniformeSecundario;
+        System.out.println("time criado com sucesso");
+    }
+
+    @Override
+    public String toString() {
+        return "Time{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", dataCriacao=" + dataCriacao +
+                ", corUniformePrincipal='" + corUniformePrincipal + '\'' +
+                ", corUniformeSecundario='" + corUniformeSecundario + '\'' +
+                ", capitao=" + capitao +
+                '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public LocalDate getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public String getCorUniformePrincipal() {
+        return corUniformePrincipal;
+    }
+
+    public String getCorUniformeSecundario() {
+        return corUniformeSecundario;
+    }
+
+    public Long getCapitao() {
+        return capitao;
     }
 }

@@ -25,17 +25,17 @@ public class MeuTimeRestController {
         return meuTimeService.buscarNomeTime(idTime);
     }
 
-    @PostMapping(value = "/incluirJogador")
-    public ResponseEntity incluirJogador (Long id, Long idTime, String nome, String dataNascimento, Integer nivelHabilidade, BigDecimal salario){
-
-        LocalDate dataNasc = null;
+    @PostMapping(value = "/incluirTime")
+    public  ResponseEntity incluirTime(Long id, String nome, String dataCriacao, String corUniformePrincipal, String corUniformeSecundario){
+        LocalDate dataCri = null;
         try {
-            dataNasc = LocalDate.parse(dataNascimento);
+            dataCri = LocalDate.parse(dataCriacao);
         }catch (Exception e){
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-
-        meuTimeService.incluirJogador(id, idTime, nome, dataNasc, nivelHabilidade,salario);
+        meuTimeService.incluirTime(id,nome,dataCri,corUniformePrincipal,corUniformeSecundario);
         return new ResponseEntity(HttpStatus.OK);
     }
+
+
 }

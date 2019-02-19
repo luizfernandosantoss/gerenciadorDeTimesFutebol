@@ -25,8 +25,7 @@ public class JogadorDao {
 
     public Jogador buscaJogadorPorId(Long idJogador) {
 
-        Jogador jogador = null;
-        jogador  = listaJogadores.get(idJogador);
+        Jogador jogador  = listaJogadores.get(idJogador);
         if(jogador == null){
             throw new JogadorNaoEncontradoException("Jogador não encontrado");
         }

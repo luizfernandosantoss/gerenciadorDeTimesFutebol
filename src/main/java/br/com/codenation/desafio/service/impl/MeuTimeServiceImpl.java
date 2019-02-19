@@ -48,7 +48,8 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public String buscarNomeJogador(Long idJogador) {
-        return null;
+        Jogador jogador= jogadorDao.buscaJogadorPorId(idJogador);
+        return jogador.getNome();
     }
 
     @Override
@@ -58,7 +59,7 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public Long buscarJogadorMaiorSalario(Long idTime) {
-        return null;
+        timeDao.buscarJogadorMaiorSalario(idTime);
     }
 
     @Override

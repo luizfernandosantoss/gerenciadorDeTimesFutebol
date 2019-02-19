@@ -64,4 +64,7 @@ public class TimeDao {
         }
         return buscarTimePorId(idTime).getCapitao();
     }
+
+    public Long buscarJogadorMaiorSalario(Long idTime) {
+    }
 }

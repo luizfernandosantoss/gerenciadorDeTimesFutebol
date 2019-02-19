@@ -4,6 +4,7 @@ import br.com.codenation.desafio.service.MeuTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +28,11 @@ public class JogadorRestController {
 
         meuTimeService.incluirJogador(id, idTime, nome, dataNasc, nivelHabilidade,salario);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/buscarNomeJogador")
+    public ResponseEntity<String> buscarNomeJogador(Long idJogador){
+        return  new ResponseEntity<>(meuTimeService.buscarNomeJogador(idJogador),HttpStatus.OK);
     }
 
 

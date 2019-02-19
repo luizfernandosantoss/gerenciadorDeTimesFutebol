@@ -16,36 +16,37 @@ import java.time.LocalDate;
 @RestController
 public class MeuTimeRestController {
 
-    @Autowired
-    private MeuTimeService meuTimeService;
+        @Autowired
+        private MeuTimeService meuTimeService;
 
-    @GetMapping(value = "/buscarNomeTime")
-    public String buscarNomeTime(Long idTime) {
 
-        return meuTimeService.buscarNomeTime(idTime);
-    }
 
-    @PostMapping(value = "/incluirTime")
-    public  ResponseEntity incluirTime(Long id, String nome, String dataCriacao, String corUniformePrincipal, String corUniformeSecundario){
-        LocalDate dataCri = null;
-        try {
-            dataCri = LocalDate.parse(dataCriacao);
-        }catch (Exception e){
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
-        }
-        meuTimeService.incluirTime(id,nome,dataCri,corUniformePrincipal,corUniformeSecundario);
-        return new ResponseEntity(HttpStatus.OK);
-    }
-    @PostMapping(value = "/definirCapitao")
-    public ResponseEntity definirCapitao (Long idJogador){
-            meuTimeService.definirCapitao(idJogador);
+        @PostMapping(value = "/incluirTime")
+        public  ResponseEntity incluirTime(Long id, String nome, String dataCriacao, String corUniformePrincipal, String corUniformeSecundario){
+            LocalDate dataCri = null;
+            try {
+                dataCri = LocalDate.parse(dataCriacao);
+            }catch (Exception e){
+                return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            }
+            meuTimeService.incluirTime(id,nome,dataCri,corUniformePrincipal,corUniformeSecundario);
             return new ResponseEntity(HttpStatus.OK);
-    }
+        }
+        @PostMapping(value = "/definirCapitao")
+        public ResponseEntity definirCapitao (Long idJogador){
+                meuTimeService.definirCapitao(idJogador);
+                return new ResponseEntity(HttpStatus.OK);
+        }
 
-    @GetMapping(value = "/buscarCapitaoDoTime")
-    public ResponseEntity buscarCapitaoDoTime (Long idTime) {
-        return new ResponseEntity(meuTimeService.buscarCapitaoDoTime(idTime),HttpStatus.OK);
-    }
+        @GetMapping(value = "/buscarCapitaoDoTime")
+        public ResponseEntity buscarCapitaoDoTime (Long idTime) {
+            return new ResponseEntity(meuTimeService.buscarCapitaoDoTime(idTime),HttpStatus.OK);
+        }
+        @GetMapping(value = "/buscarNomeTime")
+        public String buscarNomeTime(Long idTime) {
 
-    }
+            return meuTimeService.buscarNomeTime(idTime);
+        }
+
+}
 

@@ -16,17 +16,21 @@ import java.util.List;
 public class MeuTimeServiceImpl implements MeuTimeService {
 
 
+    @Autowired
+    private TimeDao timeDao;
+
+    @Autowired
+    private JogadorDao jogadorDao;
+
     @Override
     public void incluirTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario) {
         Time time = new Time(id,nome,dataCriacao,corUniformePrincipal,corUniformeSecundario);
-        TimeDao timeDao = new TimeDao();
         timeDao.adicionarTime(time);
     }
 
     @Override
     public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
         Jogador jogador = new Jogador(id,idTime,nome,dataNascimento,nivelHabilidade,salario);
-        JogadorDao jogadorDao = new JogadorDao();
         jogadorDao.adicionarJogador(jogador);
     }
 

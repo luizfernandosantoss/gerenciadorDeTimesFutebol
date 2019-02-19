@@ -1,6 +1,10 @@
 package br.com.codenation.desafio.model;
 
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
+
 import java.time.LocalDate;
+
 
 public class Time {
     private Long id;

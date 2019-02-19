@@ -1,18 +1,22 @@
 package br.com.codenation.desafio.dao;
 
 import br.com.codenation.desafio.model.Jogador;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@ApplicationScope
+@Component
 public class JogadorDao {
 
 
-    Map<Long,Jogador> listaJogadoresHas = new HashMap<Long, Jogador>();
+    Map<Long,Jogador> listaJogadores = new HashMap<Long, Jogador>();
 
 
     public void adicionarJogador(Jogador jogador) {
-        listaJogadoresHas.put(jogador.getId(),jogador);
+        listaJogadores.put(jogador.getId(),jogador);
 
     }
 

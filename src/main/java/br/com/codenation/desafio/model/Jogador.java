@@ -1,8 +1,12 @@
 package br.com.codenation.desafio.model;
 
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
+
 
 public class Jogador {
 

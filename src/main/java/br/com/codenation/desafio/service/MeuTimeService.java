@@ -9,29 +9,29 @@ import java.util.List;
 
 public interface MeuTimeService {
 
-    public void incluirTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario);
+    void incluirTime(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario);
 
-    public void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario);
+    void incluirJogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario);
 
-    public void definirCapitao(Long idJogador);
+    void definirCapitao(Long idJogador);
 
-    public Long buscarCapitaoDoTime(Long idTime);
+    Long buscarCapitaoDoTime(Long idTime);
 
-    public String buscarNomeJogador(Long idJogador);
+    String buscarNomeJogador(Long idJogador);
 
-    public String buscarNomeTime(Long idTime);
+    String buscarNomeTime(Long idTime);
 
-    public Long buscarJogadorMaiorSalario(Long idTime);
+    Long buscarJogadorMaiorSalario(Long idTime);
 
-    public BigDecimal buscarSalarioDoJogaodor(Long idJogador);
+    BigDecimal buscarSalarioDoJogaodor(Long idJogador);
 
-    public List<Long> buscarJogadoresDoTime(Long idTime);
+    List<Long> buscarJogadoresDoTime(Long idTime);
 
-    public Long buscarMelhorJogadorDoTime(Long idTime);
+    Long buscarMelhorJogadorDoTime(Long idTime);
 
-    public Long buscarJogadorMaisVelho(Long idTime);
+    Long buscarJogadorMaisVelho(Long idTime);
 
-    public List<Long> buscarTimes();
+    List<Long> buscarTimes();
 
-    public List<Long> buscarTopJogadores(Integer top);
+    List<Long> buscarTopJogadores(Integer top);
 }

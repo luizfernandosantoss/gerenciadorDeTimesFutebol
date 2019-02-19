@@ -1,4 +1,4 @@
 package br.com.codenation.desafio.exceptions;
 
-public class TimeNaoEncontradoException {
+public class TimeNaoEncontradoException extends  RuntimeException {
 }

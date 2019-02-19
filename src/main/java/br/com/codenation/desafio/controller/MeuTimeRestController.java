@@ -42,5 +42,10 @@ public class MeuTimeRestController {
             return new ResponseEntity(HttpStatus.OK);
     }
 
-}
+    @GetMapping(value = "/buscarCapitaoDoTime")
+    public ResponseEntity buscarCapitaoDoTime (Long idTime) {
+        return new ResponseEntity(meuTimeService.buscarCapitaoDoTime(idTime),HttpStatus.OK);
+    }
+
+    }
 

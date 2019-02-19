@@ -1,5 +1,6 @@
 package br.com.codenation.desafio.dao;
 
+import br.com.codenation.desafio.exceptions.CapitaoNaoInformadoException;
 import br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException;
 import br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException;
 import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
@@ -55,5 +56,12 @@ public class TimeDao {
     public void definirCapitao(Long idJogador,Long idTime) {
         Time time = buscarTimePorId(idTime);
         time.setCapitao(idJogador);
+    }
+
+    public Long buscarCapitaoDoTime(Long idTime) {
+        if (buscarTimePorId(idTime).getCapitao() == null){
+            throw new CapitaoNaoInformadoException("Time não tem capitão");
+        }
+        return buscarTimePorId(idTime).getCapitao();
     }
 }

@@ -42,7 +42,8 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public Long buscarCapitaoDoTime(Long idTime) {
-        return null;
+        return timeDao.buscarCapitaoDoTime(idTime);
+
     }
 
     @Override

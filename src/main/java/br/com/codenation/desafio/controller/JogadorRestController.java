@@ -24,7 +24,7 @@ public class JogadorRestController {
         try {
             dataNasc = LocalDate.parse(dataNascimento);
         }catch (Exception e){
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(HttpStatus.CREATED);
         }
 
         meuTimeService.incluirJogador(id, idTime, nome, dataNasc, nivelHabilidade,salario);

@@ -27,12 +27,6 @@ public class TimeDao {
             System.out.println(listaTime);
         }
     }
-    public boolean validarSeTimeExiste(Long idTime){
-        if(listaTime.get(idTime) != null){
-            return  true;
-        }
-        return false;
-    }
 
     public String buscaNomeTime(Long idTime) {
         String  nomeTime = null;

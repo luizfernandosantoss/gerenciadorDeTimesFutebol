@@ -47,7 +47,7 @@ public class MeuTimeRestController {
                         HttpStatus.NOT_FOUND, e.getMessage(), e);
             }
         }
-        
+
         @GetMapping(value = "/buscarNomeTime")
         public String buscarNomeTime(Long idTime) {
             try{
@@ -57,6 +57,8 @@ public class MeuTimeRestController {
                         HttpStatus.NOT_FOUND, e.getMessage(), e);
             }
         }
+
+
 
 }
 

@@ -40,6 +40,11 @@ public class JogadorRestController {
         }
 
     }
+    @GetMapping(value = "/buscarJogadorMaiorSalario")
+    public ResponseEntity<Long> buscarJogadorMaiorSalario(Long idTime){
+        return  new ResponseEntity<>(meuTimeService.buscarJogadorMaiorSalario(idTime),HttpStatus.OK);
+
+    }
 
 
 

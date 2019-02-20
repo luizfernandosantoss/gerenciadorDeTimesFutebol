@@ -2,19 +2,21 @@ package br.com.codenation.desafio.dao;
 
 import br.com.codenation.desafio.exceptions.CapitaoNaoInformadoException;
 import br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException;
-import br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException;
 import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.desafio.model.Jogador;
 import br.com.codenation.desafio.model.Time;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.math.BigDecimal;
+import java.util.*;
 
 @ApplicationScope
 @Component
 public class TimeDao {
+    @Autowired
+    private JogadorDao jogadorDao;
 
     private static Map<Long, Time> listaTime = new HashMap<Long, Time>();
 
@@ -57,5 +59,26 @@ public class TimeDao {
             throw new CapitaoNaoInformadoException("Time não tem capitão");
         }
         return buscarTimePorId(idTime).getCapitao();
+    }
+
+    public Map<Long,Jogador> buscarJogadoresPorIdTime(Long idTime) {
+        Map<Long,Jogador> jogadores = jogadorDao.getListaJogadores();
+        Map<Long,Jogador> jogadoresTime=null;
+        System.out.println(jogadores.values());
+        System.out.println(jogadores.size());
+        System.out.println(jogadores.keySet());
+
+
+        return jogadoresTime;
+    }
+
+    public Long buscarJogadorMaiorSalario(Long idTime) {
+        List<Jogador> jogadores = (List<Jogador>) buscarJogadoresPorIdTime(idTime);
+        HashMap<Long,BigDecimal> salarios = null;
+        for (Jogador jogador:jogadores){
+            salarios.put(jogador.getId(),jogador.getSalario());
+        }
+        salarios.values();
+        return 1L;
     }
 }

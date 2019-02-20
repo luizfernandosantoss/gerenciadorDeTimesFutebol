@@ -33,4 +33,8 @@ public class JogadorDao {
 
         return jogador;
     }
+
+    public Map<Long, Jogador> getListaJogadores() {
+        return listaJogadores;
+    }
 }

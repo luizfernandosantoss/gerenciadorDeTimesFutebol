@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @ApplicationScope
@@ -58,4 +59,8 @@ public class TimeDao {
         }
         return buscarTimePorId(idTime).getCapitao();
     }
+    public List<Long> buscarJogadoresDoTime(Long idTime){
+        return null;
+    }
+
 }

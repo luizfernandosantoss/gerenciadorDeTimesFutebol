@@ -25,10 +25,17 @@ public class Jogador {
         this.idTime = idTime;
         this.nome = nome;
         this.dataNascimento =  dataNascimento;
-        this.nivelHabilidade = nivelHabilidade;
+        validarNivel(nivelHabilidade);
         this.salario = salario;
         Period period = Period.between(dataNascimento,LocalDate.now());
         this.idade =  period.getYears();
+    }
+    private void validarNivel(Integer nivelHabilidade){
+        if(nivelHabilidade >= 0 && nivelHabilidade <=100){
+            this.nivelHabilidade = nivelHabilidade;
+        }else{
+            throw new IllegalArgumentException("Nivel de habilidade invalido digite um numero de 0 a 100");
+        }
     }
 
     @Override

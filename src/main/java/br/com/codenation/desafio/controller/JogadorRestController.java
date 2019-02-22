@@ -24,11 +24,11 @@ public class JogadorRestController {
         try {
             dataNasc = LocalDate.parse(dataNascimento);
         }catch (Exception e){
-            return new ResponseEntity(HttpStatus.CREATED);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
 
         meuTimeService.incluirJogador(id, idTime, nome, dataNasc, nivelHabilidade,salario);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/buscarNomeJogador")

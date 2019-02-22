@@ -4,6 +4,7 @@ import br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException;
 import br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException;
 import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.desafio.model.Jogador;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
@@ -14,11 +15,14 @@ import java.util.Map;
 @Component
 public class JogadorDao {
 
+    @Autowired
+    private TimeDao timeDao;
 
     Map<Long,Jogador> listaJogadores = new HashMap<Long, Jogador>();
 
 
     public void adicionarJogador(Jogador jogador) {
+        timeDao.buscarTimePorId(jogador.getIdTime());
         if(listaJogadores.containsKey(jogador.getId())){
             throw new IdentificadorUtilizadoException("Jogador com id = "+jogador.getId() + " Ja esta cadastrado");
         }

@@ -1,5 +1,6 @@
 package br.com.codenation.desafio.dao;
 
+import br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException;
 import br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException;
 import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.desafio.model.Jogador;
@@ -18,9 +19,14 @@ public class JogadorDao {
 
 
     public void adicionarJogador(Jogador jogador) {
+        if(listaJogadores.containsKey(jogador.getId())){
+            throw new IdentificadorUtilizadoException("Jogador com id = "+jogador.getId() + " Ja esta cadastrado");
+        }
         listaJogadores.put(jogador.getId(),jogador);
+        System.out.println(jogador);
 
     }
+
 
 
     public Jogador buscaJogadorPorId(Long idJogador) {

@@ -22,10 +22,10 @@ public class TimeDao {
     public void adicionarTime(Time time) {
         if (listaTime.containsKey(time.getId())){
             throw new IdentificadorUtilizadoException("Time de id "+time.getId() + " Ja esta cadastrado");
-        }else {
-            listaTime.put(time.getId(),time);
-            System.out.println(listaTime);
         }
+        listaTime.put(time.getId(),time);
+        System.out.println(listaTime);
+
     }
 
     public String buscaNomeTime(Long idTime) {

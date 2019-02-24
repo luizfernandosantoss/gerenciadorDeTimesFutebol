@@ -73,6 +73,10 @@ public class JogadorRestController {
         return new ResponseEntity<>(meuTimeService.buscarSalarioDoJogador(idJogador),HttpStatus.OK);
     }
 
+    @GetMapping(value = "buscarTopJogadores")
+    public ResponseEntity<List<Long>> buscarTopJogadores(Integer top){
+        return new ResponseEntity<>(meuTimeService.buscarTopJogadores(top),HttpStatus.OK);
+    }
 
 
 

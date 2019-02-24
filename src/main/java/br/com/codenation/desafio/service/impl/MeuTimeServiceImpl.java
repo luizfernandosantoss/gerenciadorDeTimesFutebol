@@ -89,6 +89,6 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public List<Long> buscarTopJogadores(Integer top) {
-        return null;
+        return jogadorDao.buscarTopJogadores(top);
     }
 }

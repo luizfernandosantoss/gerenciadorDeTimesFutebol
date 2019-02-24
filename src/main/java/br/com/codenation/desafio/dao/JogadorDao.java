@@ -92,4 +92,18 @@ public class JogadorDao {
     }
 
 
+    public List<Long> buscarTopJogadores(Integer top) {
+        List<Jogador> jogadoresList = new ArrayList(getListaJogadores().values());
+        Collections.sort(jogadoresList,Comparator.comparing(Jogador::getNivelHabilidade).reversed());
+        List<Long> idJogadoresTop = new ArrayList<>();
+        Integer i = 0;
+
+        for (Jogador jogador:jogadoresList) {
+            if (i < top) {
+                idJogadoresTop.add(jogador.getId());
+                i++;
+            }
+        }
+        return idJogadoresTop;
+    }
 }

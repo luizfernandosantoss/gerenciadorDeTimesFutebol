@@ -68,6 +68,7 @@ public class JogadorDao {
         for (Jogador jogador:buscarJogadoresDoTime(idTime)){
             idJogadores.add(jogador.getId());
         }
+        Collections.sort(idJogadores);
         return idJogadores;
     }
     public Long buscarJogadorMaisVelho(Long idTime){

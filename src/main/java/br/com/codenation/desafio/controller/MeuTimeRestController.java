@@ -1,5 +1,6 @@
 package br.com.codenation.desafio.controller;
 
+import br.com.codenation.desafio.dao.TimeDao;
 import br.com.codenation.desafio.exceptions.CapitaoNaoInformadoException;
 import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.desafio.service.MeuTimeService;
@@ -19,6 +20,8 @@ public class MeuTimeRestController {
 
         @Autowired
         private MeuTimeService meuTimeService;
+        @Autowired
+        private TimeDao timeDao;
 
 
 
@@ -64,5 +67,12 @@ public class MeuTimeRestController {
         public ResponseEntity<List<Long>> buscarTimes(){
            return  new ResponseEntity<>(meuTimeService.buscarTimes(),HttpStatus.OK);
         }
+
+    @GetMapping (value = "buscarCorCamisaTimeDeFora")
+    public ResponseEntity<String> buscarCorCamisaTimeDeFora(Long idTimeDaCasa,Long idTimeDeFora){
+        return  new ResponseEntity<>(timeDao.buscarCorCamisaTimeDeFora(idTimeDaCasa,idTimeDeFora),HttpStatus.OK);
+    }
+
+
 }
 

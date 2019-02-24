@@ -75,4 +75,16 @@ public class TimeDao {
         Collections.sort(listId);
         return listId;
     }
+    public  String buscarCorCamisaTimeDeFora(Long idTimeDaCasa,Long idTimeDeFora){
+        Time timeDaCasa = buscarTimePorId(idTimeDaCasa);
+        Time timeDeFora = buscarTimePorId(idTimeDeFora);
+        if(timeDaCasa.getCorUniformePrincipal().toUpperCase().equals(timeDeFora.getCorUniformePrincipal().toUpperCase())){
+            return timeDeFora.getCorUniformeSecundario();
+        }
+        else if(!timeDaCasa.getCorUniformePrincipal().toUpperCase().equals(timeDeFora.getCorUniformePrincipal().toUpperCase())){
+            return timeDaCasa.getCorUniformePrincipal();
+        }
+        return null;
+    }
+
 }

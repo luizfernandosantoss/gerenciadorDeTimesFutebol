@@ -91,4 +91,5 @@ public class MeuTimeServiceImpl implements MeuTimeService {
     public List<Long> buscarTopJogadores(Integer top) {
         return jogadorDao.buscarTopJogadores(top);
     }
+
 }

@@ -8,9 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+
 @RestController
 public class JogadorRestController {
 
@@ -39,6 +42,15 @@ public class JogadorRestController {
             return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 
+    }
+    @GetMapping(value = "buscarJogadoresDoTime")
+    public ResponseEntity<List<Long>> buscarJogadoresDoTime(Long idTime){
+        try {
+            return  new ResponseEntity<>(meuTimeService.buscarJogadoresDoTime(idTime),HttpStatus.OK);
+        }catch (TimeNaoEncontradoException e){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, e.getMessage(), e);
+        }
     }
 
 

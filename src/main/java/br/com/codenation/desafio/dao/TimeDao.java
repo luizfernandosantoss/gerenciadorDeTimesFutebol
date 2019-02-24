@@ -59,8 +59,6 @@ public class TimeDao {
         }
         return buscarTimePorId(idTime).getCapitao();
     }
-    public List<Long> buscarJogadoresDoTime(Long idTime){
-        return null;
-    }
+
 
 }

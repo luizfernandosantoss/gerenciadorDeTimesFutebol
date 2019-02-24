@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @ApplicationScope
 @Component
@@ -43,4 +42,33 @@ public class JogadorDao {
 
         return jogador;
     }
+
+
+    public Map<Long, Jogador> getListaJogadores() {
+        return listaJogadores;
+    }
+
+    public List<Jogador> buscarJogadoresDoTime(Long idTime){
+        timeDao.buscarTimePorId(idTime);
+
+        List<Jogador> jogadoresList = new ArrayList(getListaJogadores().values());
+        List<Jogador> jogadoresTime = new ArrayList<>();
+        for(Jogador jogador:jogadoresList){
+            if(jogador.getIdTime().equals(idTime)){
+                jogadoresTime.add(jogador);
+            }
+        }
+
+        return jogadoresTime;
+    }
+
+    public List<Long> buscarIdJogadoresDoTime(Long idTime){
+        List<Long> idJogadores = new ArrayList<>();
+
+        for (Jogador jogador:buscarJogadoresDoTime(idTime)){
+            idJogadores.add(jogador.getId());
+        }
+        return idJogadores;
+    }
+
 }

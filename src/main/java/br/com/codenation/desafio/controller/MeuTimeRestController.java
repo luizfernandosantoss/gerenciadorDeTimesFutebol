@@ -26,11 +26,12 @@ public class MeuTimeRestController {
             LocalDate dataCri = null;
             try {
                 dataCri = LocalDate.parse(dataCriacao);
+                meuTimeService.incluirTime(id,nome,dataCri,corUniformePrincipal,corUniformeSecundario);
+                return new ResponseEntity(HttpStatus.CREATED);
             }catch (Exception e){
-                return new ResponseEntity(HttpStatus.BAD_REQUEST);
+                throw new  ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
             }
-            meuTimeService.incluirTime(id,nome,dataCri,corUniformePrincipal,corUniformeSecundario);
-            return new ResponseEntity(HttpStatus.CREATED);
+
         }
         @PostMapping(value = "/definirCapitao")
         public ResponseEntity definirCapitao (Long idJogador){

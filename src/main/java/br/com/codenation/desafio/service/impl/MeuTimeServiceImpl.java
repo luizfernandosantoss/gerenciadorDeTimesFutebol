@@ -79,7 +79,7 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public Long buscarJogadorMaisVelho(Long idTime) {
-        return null;
+        return jogadorDao.buscarJogadorMaisVelho(idTime);
     }
 
     @Override

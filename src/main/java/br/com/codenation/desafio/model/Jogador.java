@@ -21,6 +21,9 @@ public class Jogador {
 
 
     public Jogador(Long id, Long idTime, String nome, LocalDate dataNascimento, Integer nivelHabilidade, BigDecimal salario) {
+        if (id == null || nome.isEmpty() || nome == null){
+            throw new IllegalArgumentException("Atributos id e nome não pode ser nulo ");
+        }
         this.id = id;
         this.idTime = idTime;
         this.nome = nome;

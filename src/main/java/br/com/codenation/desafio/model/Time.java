@@ -16,7 +16,7 @@ public class Time {
 
     public Time(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario) {
         if (id == null || nome.isEmpty() || nome == null){
-           throw new IllegalArgumentException("Atributos id,nome,data não pode ser nulo ");
+           throw new IllegalArgumentException("Atributos id e nome não pode ser nulo ");
         }
         this.id = id;
         this.nome = nome;

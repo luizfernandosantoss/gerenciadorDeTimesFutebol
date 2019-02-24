@@ -2,12 +2,12 @@ package br.com.codenation.desafio.dao;
 
 import br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException;
 import br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException;
-import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.desafio.model.Jogador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 @ApplicationScope
@@ -86,6 +86,9 @@ public class JogadorDao {
         List<Jogador> jogadores = buscarJogadoresDoTime(idTime);
         Collections.sort(jogadores,Comparator.comparing(Jogador::getSalario).reversed());
         return jogadores.get(0).getId();
+    }
+    public BigDecimal buscarSalarioDoJogador(Long idJogador){
+        return buscaJogadorPorId(idJogador).getSalario();
     }
 
 

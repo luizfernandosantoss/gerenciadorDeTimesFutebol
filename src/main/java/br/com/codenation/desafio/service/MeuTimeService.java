@@ -23,7 +23,7 @@ public interface MeuTimeService {
 
     Long buscarJogadorMaiorSalario(Long idTime);
 
-    BigDecimal buscarSalarioDoJogaodor(Long idJogador);
+    BigDecimal buscarSalarioDoJogador(Long idJogador);
 
     List<Long> buscarJogadoresDoTime(Long idTime);
 

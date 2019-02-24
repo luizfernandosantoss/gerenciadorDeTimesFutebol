@@ -63,8 +63,8 @@ public class MeuTimeServiceImpl implements MeuTimeService {
     }
 
     @Override
-    public BigDecimal buscarSalarioDoJogaodor(Long idJogador) {
-        return null;
+    public BigDecimal buscarSalarioDoJogador(Long idJogador) {
+        return jogadorDao.buscarSalarioDoJogador(idJogador);
     }
 
     @Override

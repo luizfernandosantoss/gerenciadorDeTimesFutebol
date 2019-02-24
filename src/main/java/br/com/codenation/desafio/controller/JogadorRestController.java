@@ -68,6 +68,12 @@ public class JogadorRestController {
         return new ResponseEntity<>(meuTimeService.buscarJogadorMaiorSalario(idTime),HttpStatus.OK);
     }
 
+    @GetMapping(value = "buscarSalarioDoJogador")
+    public ResponseEntity<BigDecimal> buscarSalarioDoJogador(Long idJogador){
+        return new ResponseEntity<>(meuTimeService.buscarSalarioDoJogador(idJogador),HttpStatus.OK);
+    }
+
+
 
 
 }

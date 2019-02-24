@@ -82,5 +82,11 @@ public class JogadorDao {
         return jogadores.get(0).getId();
     }
 
+    public Long buscarJogadorMaiorSalario(Long idTime){
+        List<Jogador> jogadores = buscarJogadoresDoTime(idTime);
+        Collections.sort(jogadores,Comparator.comparing(Jogador::getSalario).reversed());
+        return jogadores.get(0).getId();
+    }
+
 
 }

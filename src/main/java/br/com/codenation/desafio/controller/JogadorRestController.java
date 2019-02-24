@@ -20,7 +20,7 @@ public class JogadorRestController {
     @Autowired
     private MeuTimeService meuTimeService;
 
-    @PostMapping(value = "/incluirJogador")
+    @PostMapping(value = "incluirJogador")
     public ResponseEntity incluirJogador (Long id, Long idTime, String nome, String dataNascimento, Integer nivelHabilidade, BigDecimal salario){
 
         LocalDate dataNasc = null;
@@ -34,7 +34,7 @@ public class JogadorRestController {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/buscarNomeJogador")
+    @GetMapping(value = "buscarNomeJogador")
     public ResponseEntity<String> buscarNomeJogador(Long idJogador){
         try {
             return  new ResponseEntity<>(meuTimeService.buscarNomeJogador(idJogador),HttpStatus.OK);
@@ -59,8 +59,13 @@ public class JogadorRestController {
     }
 
     @GetMapping(value = "buscarMelhorJogadorDoTime")
-    public ResponseEntity buscarMelhorJogadorDoTime(Long idTime){
+    public ResponseEntity<Long> buscarMelhorJogadorDoTime(Long idTime){
         return new ResponseEntity(meuTimeService.buscarMelhorJogadorDoTime(idTime),HttpStatus.OK);
+    }
+
+    @GetMapping(value = "buscarJogadorMaiorSalario")
+    public ResponseEntity<Long> buscarJogadorMaiorSalario(Long idTime){
+        return new ResponseEntity<>(meuTimeService.buscarJogadorMaiorSalario(idTime),HttpStatus.OK);
     }
 
 

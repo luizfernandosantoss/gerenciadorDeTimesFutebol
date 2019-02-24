@@ -22,7 +22,7 @@ public class MeuTimeRestController {
 
 
 
-        @PostMapping(value = "/incluirTime")
+        @PostMapping(value = "incluirTime")
         public  ResponseEntity incluirTime(Long id, String nome, String dataCriacao, String corUniformePrincipal, String corUniformeSecundario){
             LocalDate dataCri = null;
             try {
@@ -34,13 +34,13 @@ public class MeuTimeRestController {
             }
 
         }
-        @PostMapping(value = "/definirCapitao")
+        @PostMapping(value = "definirCapitao")
         public ResponseEntity definirCapitao (Long idJogador){
                 meuTimeService.definirCapitao(idJogador);
                 return new ResponseEntity(HttpStatus.CREATED);
         }
 
-        @GetMapping(value = "/buscarCapitaoDoTime")
+        @GetMapping(value = "buscarCapitaoDoTime")
         public ResponseEntity<Long> buscarCapitaoDoTime (Long idTime) {
             try {
                 return new ResponseEntity<>(meuTimeService.buscarCapitaoDoTime(idTime),HttpStatus.OK);
@@ -50,7 +50,7 @@ public class MeuTimeRestController {
             }
         }
         
-        @GetMapping(value = "/buscarNomeTime")
+        @GetMapping(value = "buscarNomeTime")
         public ResponseEntity<String> buscarNomeTime(Long idTime) {
             try{
                 return new ResponseEntity(meuTimeService.buscarNomeTime(idTime),HttpStatus.OK);
@@ -60,7 +60,7 @@ public class MeuTimeRestController {
             }
         }
 
-        @GetMapping (value = "/buscarTimes")
+        @GetMapping (value = "buscarTimes")
         public ResponseEntity<List<Long>> buscarTimes(){
            return  new ResponseEntity<>(meuTimeService.buscarTimes(),HttpStatus.OK);
         }

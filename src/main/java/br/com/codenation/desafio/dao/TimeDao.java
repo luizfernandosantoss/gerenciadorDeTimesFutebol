@@ -9,9 +9,7 @@ import br.com.codenation.desafio.model.Time;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @ApplicationScope
 @Component
@@ -59,6 +57,22 @@ public class TimeDao {
         }
         return buscarTimePorId(idTime).getCapitao();
     }
+    public List<Time> buscarTimes(){
+        List<Time> times = new ArrayList<>(getListaTime().values());
+        return times;
+    }
+
+    public static Map<Long, Time> getListaTime() {
+        return listaTime;
+    }
 
 
+    public List<Long> buscarIdTimes() {
+        List<Long> listId = new ArrayList<>();
+        for (Time time:buscarTimes()){
+            listId.add(time.getId());
+        }
+        Collections.sort(listId);
+        return listId;
+    }
 }

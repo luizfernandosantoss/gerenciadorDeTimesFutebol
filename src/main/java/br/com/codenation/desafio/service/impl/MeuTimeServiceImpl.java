@@ -84,7 +84,7 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public List<Long> buscarTimes() {
-        return null;
+        return timeDao.buscarIdTimes();
     }
 
     @Override

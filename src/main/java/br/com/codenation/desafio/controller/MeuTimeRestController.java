@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 public class MeuTimeRestController {
@@ -50,14 +51,18 @@ public class MeuTimeRestController {
         }
         
         @GetMapping(value = "/buscarNomeTime")
-        public String buscarNomeTime(Long idTime) {
+        public ResponseEntity<String> buscarNomeTime(Long idTime) {
             try{
-                return meuTimeService.buscarNomeTime(idTime);
+                return new ResponseEntity(meuTimeService.buscarNomeTime(idTime),HttpStatus.OK);
             }catch (TimeNaoEncontradoException  e){
                 throw new ResponseStatusException(
                         HttpStatus.NOT_FOUND, e.getMessage(), e);
             }
         }
 
+        @GetMapping (value = "/buscarTimes")
+        public ResponseEntity<List<Long>> buscarTimes(){
+           return  new ResponseEntity<>(meuTimeService.buscarTimes(),HttpStatus.OK);
+        }
 }
 

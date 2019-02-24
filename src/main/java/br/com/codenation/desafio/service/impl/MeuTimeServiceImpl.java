@@ -74,7 +74,7 @@ public class MeuTimeServiceImpl implements MeuTimeService {
 
     @Override
     public Long buscarMelhorJogadorDoTime(Long idTime) {
-        return null;
+        return jogadorDao.buscarMelhorJogadorDoTime(idTime);
     }
 
     @Override

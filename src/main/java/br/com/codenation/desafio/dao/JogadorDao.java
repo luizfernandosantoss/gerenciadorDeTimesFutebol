@@ -72,9 +72,12 @@ public class JogadorDao {
     }
     public Long buscarJogadorMaisVelho(Long idTime){
         List<Jogador> jogadores = buscarJogadoresDoTime(idTime);
-        System.out.println(jogadores);
         Collections.sort(jogadores,Comparator.comparing(Jogador::getIdade).reversed());
-        System.out.println(jogadores);
+        return jogadores.get(0).getId();
+    }
+    public Long buscarMelhorJogadorDoTime(Long idTime){
+        List<Jogador> jogadores = buscarJogadoresDoTime(idTime);
+        Collections.sort(jogadores,Comparator.comparing(Jogador::getNivelHabilidade).reversed());
         return jogadores.get(0).getId();
     }
 
